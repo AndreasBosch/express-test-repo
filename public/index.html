@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-        <nav>
-                <a href="index.html">Main</a>
-                <a href="second.html">Second</a>
-            </nav>
+    <nav>
+        <a href="index.html">Main</a>
+        <a href="second.html">Second</a>
+    </nav>
     <div id="content"></div>
 
 
     <script>
-         const cont = document.getElementById('content');
-    fetch("http://localhost:3000/api/person")
-    .then(response =>{
-        console.log(response);
-        return response.json();
-    }).then(json =>{
-        console.log(json);
-       
-
-        let navn = document.createElement('h1');
-        navn.textContent = json.navn;
-        cont.appendChild(navn);
-
-        let efternavn = document.createElement('h1');
-        efternavn.textContent = json.efternavn;
-        cont.appendChild(efternavn)d
+        const cont = document.getElementById('content');
+        fetch("http://localhost:3000/api/person")
+            .then(response => {
+                console.log(response);
+                return response.json();
+            }).then(json => {
+                console.log(json);
 
 
-        let alder = document.createElement('h1');
-        alder.textContent = json.alder;
-        cont.appendChild(alder);
+                let navn = document.createElement('h1');
+                navn.textContent = json.navn;
+                cont.appendChild(navn);
 
-        let by = document.createElement('h1');
-        by.textContent = json.by;
-        cont.appendChild(by);
-    })
-    fetch("http://localhost:3000/api/test")
-    .then(response =>{
-        console.log(response);
-        return response.json();
-    }).then(json =>{
-        let test = document.createElement('p');
-        test.textContent = json.greeting;
-        cont.appendChild(test)
-    })
-    
+                let efternavn = document.createElement('h1');
+                efternavn.textContent = json.efternavn;
+                cont.appendChild(efternavn)
+
+
+                let alder = document.createElement('h1');
+                alder.textContent = json.alder;
+                cont.appendChild(alder);
+
+                let by = document.createElement('h1');
+                by.textContent = json.by;
+                cont.appendChild(by);
+            })
+        fetch("http://localhost:3000/api/test")
+            .then(response => {
+                console.log(response);
+                return response.json();
+            }).then(json => {
+                let test = document.createElement('p');
+                test.textContent = json.greeting;
+                cont.appendChild(test)
+            })
+
     </script>
 </body>
+
 </html>

@@ -9,15 +9,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.get('/api/test/:id', (req, res) => {
+app.get('/api/test/', (req, res) => {
     console.log(req.query);
-    res.json({ text: "Hello Worlds, et eller andet"});
- });
+    res.json({ text: "Hello Worlds, et eller andet" });
+});
 
 app.get('/api/person', (req, res) => {
     res.json({
         navn: "Andreas",
-        efternavn: "Bosch",d
+        efternavn: "Bosch",
         by: "Frederiksberg",
         alder: 19,
     });
@@ -36,6 +36,13 @@ app.get('/api/faxe', (req, res) => {
     });
 });
 
+app.post('/api/formular', (req, res) => {
+    res.json({
+        besked: "data blev modtaget",
+        fornavn: req.body.fornavn,
+        efternavn: req.body.efternavn
+    });
+});
 
 
 
